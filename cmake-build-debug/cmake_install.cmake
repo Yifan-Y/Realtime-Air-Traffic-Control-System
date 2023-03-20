@@ -1,4 +1,4 @@
-# Install script for directory: /Users/yifanyang/CLionProjects/ATC
+# Install script for directory: /Users/yifanyang/Library/CloudStorage/OneDrive-Personal/Document/GitHub/Realtime-Air-Traffic-Control-System
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/yifanyang/CLionProjects/ATC/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/yifanyang/Library/CloudStorage/OneDrive-Personal/Document/GitHub/Realtime-Air-Traffic-Control-System/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

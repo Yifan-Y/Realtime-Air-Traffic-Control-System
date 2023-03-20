@@ -3,4 +3,4 @@ project(ATC)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(ATC main.cpp src/position.h src/position.cpp src/speed.h src/flight.cpp src/speed.cpp src/flight.h src/constants.h)
+add_executable(ATC main.cpp src/Flight.cpp src/Flight.h src/Constants.h src/Controller.cpp src/Timer.h src/Utility.cpp src/Utility.h)
