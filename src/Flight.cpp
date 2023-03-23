@@ -4,6 +4,7 @@
 
 #include <string>
 #include "Flight.h"
+#include "Utility.h"
 
 Flight::Flight(float _time, std::string _id, float _positionX, float _positionY, float _positionZ, float _speedX,
                float _speedY, float _speedZ) {
@@ -28,9 +29,21 @@ Flight::Flight(std::string _id, float _positionX, float _positionY, float _posit
     speedZ = _speedZ;
 }
 
-Flight::~Flight() {
+Flight::~Flight() = default;
 
+
+void Flight::enRoute(Flight flight) {
+    flight.setPositionX(flight.getPositionX() + Utility::kphToFps(flight.getSpeedX()));
+    flight.setPositionY(flight.getPositionY() + Utility::kphToFps(flight.getSpeedY()));
+    flight.setPositionZ(flight.getPositionZ() + Utility::kphToFps(flight.getSpeedZ()));
 }
+
+void Flight::changeDirection(Flight flight, float _speedX, float _speedY, float _speedZ) {
+    flight.setSpeedX(_speedX);
+    flight.setSpeedY(_speedY);
+    flight.setSpeedZ(_speedZ);
+}
+
 
 std::ostream &operator<<(std::ostream &os, const Flight &flight) {
     os << "time: " << flight.time << " id: " << flight.id << " positionX: " << flight.positionX << " positionY: "
@@ -38,5 +51,7 @@ std::ostream &operator<<(std::ostream &os, const Flight &flight) {
        << flight.speedY << " speedZ: " << flight.speedZ;
     return os;
 }
+
+
 
 

@@ -7,6 +7,7 @@
 
 #include <string>
 #include <ostream>
+#include <cmath>
 
 
 class Flight{
@@ -14,6 +15,7 @@ public:
     Flight(std::string _id, float _positionX, float _positionY, float _positionZ, float _speedX, float _speedY, float _speedZ);
     Flight(float time, std::string _id, float _positionX, float _positionY, float _positionZ, float _speedX, float _speedY, float _speedZ);
     virtual ~Flight();
+
 
     float getTime() {return time;};
     std::string getId() {return id;};
@@ -33,10 +35,13 @@ public:
     void setSpeedY(float _speedY) {speedY = _speedY;};
     void setSpeedZ(float _speedZ) {speedZ = _speedZ;};
 
+    //std::ostream getLocation(Flight flight);
+    //void getSpeed(Flight flight);
+
     friend std::ostream &operator<<(std::ostream &os, const Flight &flight);
 
 private:
-    float time;
+    float time{};
     std::string id;
     float positionX;
     float positionY;
@@ -44,7 +49,8 @@ private:
     float speedX;
     float speedY;
     float speedZ;
-
+    void enRoute(Flight flight);
+    void changeDirection(Flight flight, float _speedX, float _speedY, float _speedZ);
 };
 
 #endif //ATC_FLIGHT_H

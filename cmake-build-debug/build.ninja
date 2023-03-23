@@ -70,6 +70,12 @@ build CMakeFiles/ATC.dir/src/Utility.cpp.o: CXX_COMPILER__ATC_Debug /Users/yifan
   OBJECT_DIR = CMakeFiles/ATC.dir
   OBJECT_FILE_DIR = CMakeFiles/ATC.dir/src
 
+build CMakeFiles/ATC.dir/src/Threads.cpp.o: CXX_COMPILER__ATC_Debug /Users/yifanyang/Library/CloudStorage/OneDrive-Personal/Document/GitHub/Realtime-Air-Traffic-Control-System/src/Threads.cpp || cmake_object_order_depends_target_ATC
+  DEP_FILE = CMakeFiles/ATC.dir/src/Threads.cpp.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics -std=gnu++17
+  OBJECT_DIR = CMakeFiles/ATC.dir
+  OBJECT_FILE_DIR = CMakeFiles/ATC.dir/src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ATC
@@ -78,7 +84,7 @@ build CMakeFiles/ATC.dir/src/Utility.cpp.o: CXX_COMPILER__ATC_Debug /Users/yifan
 #############################################
 # Link the executable ATC
 
-build ATC: CXX_EXECUTABLE_LINKER__ATC_Debug CMakeFiles/ATC.dir/main.cpp.o CMakeFiles/ATC.dir/src/Flight.cpp.o CMakeFiles/ATC.dir/src/Controller.cpp.o CMakeFiles/ATC.dir/src/Utility.cpp.o
+build ATC: CXX_EXECUTABLE_LINKER__ATC_Debug CMakeFiles/ATC.dir/main.cpp.o CMakeFiles/ATC.dir/src/Flight.cpp.o CMakeFiles/ATC.dir/src/Controller.cpp.o CMakeFiles/ATC.dir/src/Utility.cpp.o CMakeFiles/ATC.dir/src/Threads.cpp.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk
   OBJECT_DIR = CMakeFiles/ATC.dir
   POST_BUILD = :
