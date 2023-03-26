@@ -32,11 +32,7 @@ Flight::Flight(std::string _id, float _positionX, float _positionY, float _posit
 Flight::~Flight() = default;
 
 
-void Flight::enRoute(Flight flight) {
-    flight.setPositionX(flight.getPositionX() + Utility::kphToFps(flight.getSpeedX()));
-    flight.setPositionY(flight.getPositionY() + Utility::kphToFps(flight.getSpeedY()));
-    flight.setPositionZ(flight.getPositionZ() + Utility::kphToFps(flight.getSpeedZ()));
-}
+
 
 void Flight::changeDirection(Flight flight, float _speedX, float _speedY, float _speedZ) {
     flight.setSpeedX(_speedX);
@@ -52,6 +48,17 @@ std::ostream &operator<<(std::ostream &os, const Flight &flight) {
     return os;
 }
 
+void Flight::updatePosition(Flight& flight, float _positionX, float _positionY, float _positionZ) {
+    flight.setPositionX(_positionX);
+    flight.setPositionY(_positionY);
+    flight.setPositionZ(_positionZ);
+}
 
+void Flight::enRoute(Flight& flight) {
+    float newPositionX = flight.getPositionX() + Utility::kphToFps(flight.getSpeedX());
+    float newPositionY = flight.getPositionY() + Utility::kphToFps(flight.getSpeedY());
+    float newPositionZ = flight.getPositionZ() + Utility::kphToFps(flight.getSpeedZ());
+    updatePosition(flight, newPositionX, newPositionY, newPositionZ);
+}
 
 

@@ -9,9 +9,9 @@
 #include <cstdlib>
 #include <vector>
 #include <cmath>
-#include <vector>
 #include <fstream>
 #include <sstream>
+#include <ctime>
 
 #include "Flight.h"
 #include "Constants.h"
@@ -25,7 +25,10 @@ public:
     static float fpsToKph(float fps);
     static float getRealDistance(Flight flight1, Flight flight2);
 
+    static std::string getCurrentTime();
+
     static std::vector<Flight> readFile(std::string path);
+    static void writeFile(std::vector<Flight>& flights);
 
 private:
 

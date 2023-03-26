@@ -68,6 +68,7 @@ std::vector<Flight> Utility::readFile(std::string path) {
 
         ss >> id >> positionX >> positionY >> positionZ >> speedX >> speedY >> speedZ;
         Flight flight(id, positionX, positionY, positionZ, speedX, speedY, speedZ);
+
         if (Utility::checkLoc(flight))
             flights.push_back(flight);
     }
@@ -75,6 +76,25 @@ std::vector<Flight> Utility::readFile(std::string path) {
     inputFile.close();
 
     return flights;
+}
+
+std::string Utility::getCurrentTime() {
+    time_t now = time(0);
+    char timeBuffer[80];
+    strftime(timeBuffer, 80, "%Y-%m-%d_%H-%M-%S", localtime(&now));
+    return {timeBuffer};
+}
+
+void Utility::writeFile(std::vector<Flight>& flights) {
+    std::string timeBuffer = Utility::getCurrentTime();
+    std::string filename = std::string("../Output/") + std::string(timeBuffer) + ".cvs";
+    std::ofstream outFile(filename.c_str(), std::ios::out);
+    if (outFile.is_open()) {
+        for (auto &flight : flights) {
+            outFile << flight << std::endl;
+        }
+        outFile.close();
+    }
 }
 
 

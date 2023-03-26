@@ -34,9 +34,13 @@ public:
     void setSpeedX(float _speedX) {speedX = _speedX;};
     void setSpeedY(float _speedY) {speedY = _speedY;};
     void setSpeedZ(float _speedZ) {speedZ = _speedZ;};
+    static void enRoute(Flight& flight);
+
 
     //std::ostream getLocation(Flight flight);
     //void getSpeed(Flight flight);
+    static void updatePosition(Flight& flight, float _positionX, float _positionY, float _positionZ);
+    void changeDirection(Flight flight, float _speedX, float _speedY, float _speedZ);
 
     friend std::ostream &operator<<(std::ostream &os, const Flight &flight);
 
@@ -49,8 +53,7 @@ private:
     float speedX;
     float speedY;
     float speedZ;
-    void enRoute(Flight flight);
-    void changeDirection(Flight flight, float _speedX, float _speedY, float _speedZ);
+
 };
 
 #endif //ATC_FLIGHT_H
