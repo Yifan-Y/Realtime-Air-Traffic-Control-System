@@ -13,21 +13,23 @@
 #include <sstream>
 #include <ctime>
 
-#include "Flight.h"
 #include "Constants.h"
+#include "Flight.h"
 
 class Utility {
 public:
     static int checkFlightNum(std::vector<Flight>& flights);
     static bool checkLoc(Flight flight);
     static bool checkViolation(Flight flight1, Flight flight2);
-    static float kphToFps(float kph);
-    static float fpsToKph(float fps);
+    static bool checkSpeed(Flight flight);
+    static float fpmToFps(float fpm);
+    static float knotToFps(float knot);
     static float getRealDistance(Flight flight1, Flight flight2);
 
     static std::string getCurrentTime();
+    static int secondToMillisecond(float second);
 
-    static std::vector<Flight> readFile(std::string path);
+    static std::vector<Flight> readFile(const std::string& path);
     static void writeFile(std::vector<Flight>& flights);
 
 private:

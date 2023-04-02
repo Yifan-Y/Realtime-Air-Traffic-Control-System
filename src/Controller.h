@@ -9,5 +9,13 @@
 #include "Utility.h"
 #include "Timer.h"
 
+class Controller {
+public:
+    static void showMenu();
+    static void startSimulation(int i);
+    static void stopSimulation();
+    static void restartSimulation();
 
+    void showRadar();
+};
 #endif //ATC_CONTROLLER_H

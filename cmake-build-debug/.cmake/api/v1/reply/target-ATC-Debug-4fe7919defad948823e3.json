@@ -2,7 +2,10 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "ATC"
+			"path" : "ATC.exe"
+		},
+		{
+			"path" : "ATC.pdb"
 		}
 	],
 	"backtrace" : 1,
@@ -35,10 +38,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk -fcolor-diagnostics"
-				},
-				{
-					"fragment" : "-std=gnu++17"
+					"fragment" : "-g -fdiagnostics-color=always"
 				}
 			],
 			"language" : "CXX",
@@ -72,12 +72,16 @@
 			{
 				"fragment" : "",
 				"role" : "flags"
+			},
+			{
+				"fragment" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
 	"name" : "ATC",
-	"nameOnDisk" : "ATC",
+	"nameOnDisk" : "ATC.exe",
 	"paths" : 
 	{
 		"build" : ".",

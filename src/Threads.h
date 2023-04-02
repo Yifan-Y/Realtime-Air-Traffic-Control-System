@@ -10,10 +10,13 @@
 
 class Threads{
 public:
-    static void enRoute(Flight& flight);
-    static void logEvery30Min(std::vector<Flight>& flights);
-    static void execThreads(std::vector<Flight> flights);
+    static void enRoute(std::vector<Flight>& flights, int index);
+    static void logEvery30Sec(std::vector<Flight>& flights);
+    static void execThreads(std::vector<Flight>& flights);
     static void showStatusEverySecond(std::vector<Flight>& flights);
+    static void checkSpeed(std::vector<Flight>& flights);
+    static void checkViolation(std::vector<Flight>& flights);
+    static void endAllThreads();
 };
 
 #endif //ATC_THREADS_H
