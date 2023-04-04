@@ -13,7 +13,7 @@ public:
     static void enRoute(std::vector<Flight>& flights, int index);
     static void logEvery30Sec(std::vector<Flight>& flights);
     static void execThreads(std::vector<Flight>& flights);
-    static void showStatusEverySecond(std::vector<Flight>& flights);
+    static void showStatusEvery5Second(std::vector<Flight>& flights);
     static void checkSpeed(std::vector<Flight>& flights);
     static void checkViolation(std::vector<Flight>& flights);
     static void endAllThreads();

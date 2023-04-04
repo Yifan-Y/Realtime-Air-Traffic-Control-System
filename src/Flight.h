@@ -18,7 +18,7 @@ public:
     virtual ~Flight();
 
 
-    float getTime() {return time;};
+    float getTime() const {return time;};
     std::string getId() {return id;};
     float getPositionX() {return positionX;};
     float getPositionY() {return positionY;};
@@ -40,6 +40,9 @@ public:
     void setTerminated();
     bool isTerminated() const;
 
+    //void setStarted();
+   // bool isStrated() const;
+
     //std::ostream getLocation(Flight flight);
     //void getSpeed(Flight flight);
     static void updatePosition(Flight& flight, float _positionX, float _positionY, float _positionZ);
@@ -48,7 +51,7 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const Flight &flight);
 
 private:
-    float time{};
+    float time;
     std::string id;
     float positionX;
     float positionY;
@@ -57,6 +60,7 @@ private:
     float speedY;
     float speedZ;
     bool terminated_ = false;
+    bool started_ = false;
     // static std::mutex mutex_;
 
 };

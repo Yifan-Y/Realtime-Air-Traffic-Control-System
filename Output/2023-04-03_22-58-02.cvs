@@ -1,0 +1,13 @@
+FlightID  X_Position  Y_Position  Z_Position  X_Speed  Y_Speed  Z_Speed
+ id: AC001 positionX: 36502.3 positionY: 39505.9 positionZ: 25000 speedX: 243 speedY: 260 speedZ: 0
+ id: AA056 positionX: 52942.3 positionY: 40107.4 positionZ: 30000 speedX: 350 speedY: 267 speedZ: 0
+ id: CA1008 positionX: 40254.1 positionY: 42026.5 positionZ: 30008 speedX: 284 speedY: 300 speedZ: 0
+ id: DL736 positionX: 10288.9 positionY: 18506.3 positionZ: 39830 speedX: 254 speedY: 450 speedZ: 0
+ id: AA079 positionX: 19686.6 positionY: 256 positionZ: 29800 speedX: 486 speedY: 0 speedZ: 2000
+ id: QC001 positionX: 0 positionY: 22978.1 positionZ: 24000 speedX: 0 speedY: 556 speedZ: 0
+ id: AC015 positionX: 14339.1 positionY: 18309.4 positionZ: 23000 speedX: 345 speedY: 452 speedZ: 0
+ id: AC016 positionX: 18998.4 positionY: 0 positionZ: 24400 speedX: 460 speedY: 0 speedZ: 1000
+ id: CA888 positionX: 19150.9 positionY: 0 positionZ: 25480 speedX: 463 speedY: 0 speedZ: 1200
+ id: DL025 positionX: 20051.6 positionY: 10369.9 positionZ: 24000 speedX: 486 speedY: 256 speedZ: 0
+-------------------------------------------------------------------------------------
+* This file was automatically generated at: 2023-04-03_22-58-02

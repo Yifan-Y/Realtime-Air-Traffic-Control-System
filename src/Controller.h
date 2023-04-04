@@ -7,7 +7,6 @@
 
 #include "Flight.h"
 #include "Utility.h"
-#include "Timer.h"
 
 class Controller {
 public:

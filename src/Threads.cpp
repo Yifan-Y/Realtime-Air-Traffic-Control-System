@@ -7,7 +7,6 @@
 #include "Flight.h"
 #include "Threads.h"
 #include "Utility.h"
-#include "Controller.h"
 
 // The functions that will be executed by the thread
 void Threads::enRoute(std::vector<Flight>& flights, int index) {
@@ -23,28 +22,52 @@ void Threads::enRoute(std::vector<Flight>& flights, int index) {
 }
 
 void Threads::logEvery30Sec(std::vector<Flight>& flights) {
+    auto start_time = std::chrono::steady_clock::now();
     while (!flights.empty()) {
-        Utility::writeFile(flights);
+        std::string timeBuffer = Utility::getCurrentTime();
+        std::string filename = std::string("../Output/") + std::string(timeBuffer) + ".cvs";
+        std::ofstream outFile(filename.c_str(), std::ios::out);
+        if (outFile.is_open()) {
+            outFile << "FlightID  X_Position  Y_Position  Z_Position  X_Speed  Y_Speed  Z_Speed" << std::endl;
+            for (auto &flight : flights) {
+                float wait_time = flight.getTime();
+                int wait_time_ms = Utility::secondToMillisecond(wait_time);
+                auto currentTime = std::chrono::steady_clock::now();
+                auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - start_time).count();
+                if (elapsed_time >= wait_time_ms) {
+                    outFile << flight << std::endl;
+                }
+            }
+            outFile << "-------------------------------------------------------------------------------------" << std::endl;
+            outFile << "* This file was automatically generated at: " << timeBuffer << std::endl;
+            outFile.close();
+        }
         std::this_thread::sleep_for(std::chrono::seconds(30));
     }
 }
 
-void Threads::showStatusEverySecond(std::vector<Flight>& flights) {
-    //std::string input;
+void Threads::showStatusEvery5Second(std::vector<Flight>& flights) {
+    auto start_time = std::chrono::steady_clock::now();
     while (!flights.empty()) {
         std::cout << "----------------------------------------------------------" << std::endl;
+        int flightNum = 0;
         for(const auto & flight : flights) {
+            float wait_time = flight.getTime();
+            int wait_time_ms = Utility::secondToMillisecond(wait_time);
+            auto currentTime = std::chrono::steady_clock::now();
+            auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(currentTime - start_time).count();
+            if (elapsed_time >= wait_time_ms) {
                 std::cout << flight << std::endl;
+                flightNum++;
+            }
         }
-
-        std::cout << "Currently " << Utility::checkFlightNum(flights) << " flight(s) in range" <<std::endl;
-        //if (std::cin >> input) {
-          //  break;
-        //}
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+         std::cout << "Currently " << flightNum << " flight(s) in range" <<std::endl;
+        std::this_thread::sleep_for(std::chrono::seconds(5));
     }
-    std::cout << "All flights are out of range. The simulation will be terminating soon." << std::endl;
-    Controller::showMenu();
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::cout << "As all flights are out of range. The simulation will be terminating soon." << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(2));
+    //Controller::showMenu();
 
 }
 
@@ -80,16 +103,19 @@ void Threads::checkSpeed(std::vector<Flight> &flights) {
 
 void Threads::execThreads(std::vector<Flight>& flights) {
 
+    // Start the timer
     auto now = std::chrono::system_clock::now();
 
+    // Start threads for logging
     std::vector<std::thread> flightThreads;
     std::thread logThread(logEvery30Sec, std::ref(flights));
-    std::thread showStatusEverySecondThread(showStatusEverySecond, std::ref(flights));
+    std::thread showStatusEverySecondThread(showStatusEvery5Second, std::ref(flights));
     //std::thread checkViolationThread(checkViolation, std::ref(flights));
     //std::thread checkSpeedThread(checkSpeed, std::ref(flights));
 
     // Add flights to the thread vector
     for (int i = 0; i < flights.size(); i++) {
+        // For each flight, the thread will not start until allocated time point
         float wait_time = flights[i].getTime();
         int wait_time_ms = Utility::secondToMillisecond(wait_time);
         auto start_time = now + std::chrono::milliseconds (wait_time_ms);

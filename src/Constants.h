@@ -8,8 +8,8 @@
 
 
 // Heights
-const float BORDER_X = 10000;
-const float BORDER_Y = 10000;
+const float BORDER_X = 100000;
+const float BORDER_Y = 100000;
 const float BORDER_Z = 25000;
 const float BOTTOM_HEIGHT = 15000;
 

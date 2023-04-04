@@ -68,8 +68,7 @@ std::vector<Flight> Utility::readFile(const std::string& path) {
         ss >> time >> id >> positionX >> positionY >> positionZ >> speedX >> speedY >> speedZ;
         Flight flight(time, id, positionX, positionY, positionZ, speedX, speedY, speedZ);
 
-        //if (Utility::checkLoc(flight))
-            flights.push_back(flight);
+        flights.push_back(flight);
     }
     // Close the file
     inputFile.close();

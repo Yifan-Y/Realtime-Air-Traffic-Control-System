@@ -74,4 +74,13 @@ bool Flight::isTerminated() const {
     return terminated_;
 }
 
+//void Flight::setStarted() {
+  //  if(std::chrono::steady_clock::now() >= time)
+    //started_ = true;
+//}
+
+//bool Flight::isStrated() const {
+  //  return started_;
+//}
+
 
