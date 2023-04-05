@@ -1,6 +1,6 @@
 //
 // Created by Yifan Yang on 2023-03-22.
-//
+// Functions for threads
 
 #ifndef ATC_THREADS_H
 #define ATC_THREADS_H

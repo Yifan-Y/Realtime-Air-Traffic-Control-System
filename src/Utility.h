@@ -1,6 +1,6 @@
 //
 // Created by Yifan Yang on 2023-03-20.
-//
+// Functions for utilities
 
 #ifndef ATC_UTILITY_H
 #define ATC_UTILITY_H
@@ -24,13 +24,13 @@ public:
     static bool checkSpeed(Flight flight);
     static float fpmToFps(float fpm);
     static float knotToFps(float knot);
+    static float realSpeed(Flight flight);
     static float getRealDistance(Flight flight1, Flight flight2);
 
     static std::string getCurrentTime();
     static int secondToMillisecond(float second);
 
     static std::vector<Flight> readFile(const std::string& path);
-    static void writeFile(std::vector<Flight>& flights);
 
 private:
 

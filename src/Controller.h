@@ -1,6 +1,6 @@
 //
 // Created by Yifan Yang on 2023-03-20.
-//
+// Controller for the main menu
 
 #ifndef ATC_CONTROLLER_H
 #define ATC_CONTROLLER_H

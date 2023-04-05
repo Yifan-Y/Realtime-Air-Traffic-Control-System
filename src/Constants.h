@@ -2,6 +2,8 @@
 // Created by Yifan Yang on 2023-03-17.
 //
 
+// Store all necessary constants
+
 #ifndef ATC_CONSTANTS_H
 #define ATC_CONSTANTS_H
 

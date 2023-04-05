@@ -1,6 +1,6 @@
 //
 // Created by Yifan Yang on 2023-03-16.
-//
+// Identity model for flight
 
 #ifndef ATC_FLIGHT_H
 #define ATC_FLIGHT_H
@@ -19,7 +19,7 @@ public:
 
 
     float getTime() const {return time;};
-    std::string getId() {return id;};
+    std::string getId() const {return id;};
     float getPositionX() {return positionX;};
     float getPositionY() {return positionY;};
     float getPositionZ() {return positionZ;};

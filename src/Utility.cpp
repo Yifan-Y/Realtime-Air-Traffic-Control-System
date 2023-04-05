@@ -83,20 +83,6 @@ std::string Utility::getCurrentTime() {
     return {timeBuffer};
 }
 
-void Utility::writeFile(std::vector<Flight>& flights) {
-    std::string timeBuffer = Utility::getCurrentTime();
-    std::string filename = std::string("../Output/") + std::string(timeBuffer) + ".cvs";
-    std::ofstream outFile(filename.c_str(), std::ios::out);
-    if (outFile.is_open()) {
-        outFile << "FlightID  X_Position  Y_Position  Z_Position  X_Speed  Y_Speed  Z_Speed" << std::endl;
-        for (auto &flight : flights) {
-            outFile << flight << std::endl;
-        }
-        outFile << "-------------------------------------------------------------------------------------" << std::endl;
-        outFile << "* This file was automatically generated at: " << timeBuffer << std::endl;
-        outFile.close();
-    }
-}
 
 int Utility::secondToMillisecond(float second) {
     int res = second * 1000;
@@ -105,17 +91,17 @@ int Utility::secondToMillisecond(float second) {
 
 bool Utility::checkSpeed(Flight flight) {
     bool speedFlag = false;
-    if (flight.getSpeedX() > MAX_SPEED ||
-        flight.getSpeedY() > MAX_SPEED ||
-        flight.getSpeedZ() > MAX_ALT_CHANGE_RATE ||
-        flight.getSpeedX() < MIN_SPEED ||
-        flight.getSpeedY() < MIN_SPEED)
+    if (Utility::realSpeed(flight) > MAX_SPEED || Utility::realSpeed(flight) < MIN_SPEED || flight.getSpeedZ() > MAX_ALT_CHANGE_RATE)
         speedFlag = true;
     return speedFlag;
 }
 
 float Utility::knotToFps(float knot) {
     return knot * 1.68781;
+}
+
+float Utility::realSpeed(Flight flight) {
+    return sqrt(pow(flight.getSpeedY(), 2) + pow(flight.getSpeedY(), 2));
 }
 
 
