@@ -1,3 +1,3 @@
-C:/Users/hi/OneDrive/Document/GitHub/Realtime-Air-Traffic-Control-System/cmake-build-debug/CMakeFiles/ATC.dir
-C:/Users/hi/OneDrive/Document/GitHub/Realtime-Air-Traffic-Control-System/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/hi/OneDrive/Document/GitHub/Realtime-Air-Traffic-Control-System/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/yifanyang/CLionProjects/Realtime-Air-Traffic-Control-System/cmake-build-debug/CMakeFiles/ATC.dir
+/Users/yifanyang/CLionProjects/Realtime-Air-Traffic-Control-System/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/yifanyang/CLionProjects/Realtime-Air-Traffic-Control-System/cmake-build-debug/CMakeFiles/rebuild_cache.dir

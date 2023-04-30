@@ -1,0 +1,1 @@
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/ATC.dir/main.cpp.o CMakeFiles/ATC.dir/src/Flight.cpp.o CMakeFiles/ATC.dir/src/Controller.cpp.o CMakeFiles/ATC.dir/src/Utility.cpp.o CMakeFiles/ATC.dir/src/Threads.cpp.o -o ATC 

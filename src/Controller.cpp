@@ -12,7 +12,7 @@ void Controller::showMenu() {
     std::cout << "Please select from options provided below:" << std::endl;
     std::cout << "1 - Start Simulation (10 flights maximum)" << std::endl;
     std::cout << "2 - Start simulation (20 flights maximum)" << std::endl;
-    std::cout << "3 - Start simulation (50 flights maximum)" << std::endl;
+    std::cout << "3 - Start simulation (30 flights maximum)" << std::endl;
     int option;
     std::cin >> option;
     switch (option) {
